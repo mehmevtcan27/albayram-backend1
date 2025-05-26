@@ -14,12 +14,12 @@ app.get('/', (req, res) => {
   res.send('Albayram API çalışıyor ✅');
 });
 
-app.use('/api/employers', require('./routes/employers'));
-app.use('/api/events', require('./routes/events'));
-app.use('/api/blogs', require('./routes/blogs'));
-app.use('/api/discounts', require('./routes/discounts'));
-app.use('/api/messages', require('./routes/messages'));
-app.use('/api/auth', require('./routes/auth'));
+app.use('/api/employers', require('./routes/employers').default || require('./routes/employers'));
+app.use('/api/events', require('./routes/events').default || require('./routes/events'));
+app.use('/api/blogs', require('./routes/blogs').default || require('./routes/blogs'));
+app.use('/api/discounts', require('./routes/discounts').default || require('./routes/discounts'));
+app.use('/api/messages', require('./routes/messages').default || require('./routes/messages'));
+app.use('/api/auth', require('./routes/auth').default || require('./routes/auth'));
 
 // Connect to MongoDB ve sunucuyu başlat
 mongoose.connect(process.env.MONGO_URI, {
