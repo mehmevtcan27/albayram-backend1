@@ -1,3 +1,4 @@
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -9,7 +10,7 @@ console.log('✅ Uygulama başlatılıyor...');
 app.use(cors());
 app.use(express.json());
 
-// Routes (önceden tanımlandı)
+// Routes
 app.get('/', (req, res) => {
   res.send('Albayram API çalışıyor ✅');
 });
